@@ -1,0 +1,21 @@
+<h><b>Signup Page</b></h><br><br>
+<form method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    Student ID: <input type="number"  name="stud_id" required/><br><br>
+    Name: <input type="text"  name="name" required/><br><br>
+    Phone No.: <input type="text" name="ph_no" required/><br><br>
+    Email ID: <input type="email" placeholder="xyz@gmail.com" name="email" required/><br><br><br>
+    MARKS IN PCM<br><br>
+    Physics: <input type="number"  name="m1" required/><br><br>
+    Chemistry: <input type="number"  name="m2" required/><br><br>
+    Maths: <input type="number" name="m3" required/><br><br><br><br>
+    <button type="submit">Register</button>
+</form>
+
+{% if error_message %}
+    <p>CAN'T CREATE USER!! USER ALREADY EXISTS</p>
+{% endif %}

@@ -1,0 +1,29 @@
+{% if user.is_authenticated %}
+        <h1>Logged in as: {{ user.username }}</h1>
+        {% if user_details %}
+            <p>Student ID: {{ user_details.student_id }}</p>
+            <p>Name: {{ user_details.name }}</p>
+            <p>Phone No.: {{ user_details.phone_no }}</p>
+            <p>Email: {{ user_details.email }}</p>
+        {% else %}
+            <p>User details not found.</p>
+        {% endif %}
+        {% if user_marks %}
+            <p>MARKS IN PCM:</p>
+            <p>Physics: {{ user_marks.Physics }}</p>
+            <p>Chemistry: {{ user_marks.Chemistry }}</p>
+            <p>Maths: {{ user_marks.Maths }}</p>
+        {% else %}
+            <p>Marks details not found.</p>
+        {% endif %}
+        <!-- Example of a logout button -->
+    <!-- Example of a logout button -->
+     <form method="post" action="{% url 'l3' %}">
+         {% csrf_token %}
+         <button type="submit">Logout</button>
+     </form>
+
+    
+    {% else %}
+        <p>Please login to view details.</p>
+    {% endif %}
